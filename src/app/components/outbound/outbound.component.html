@@ -1,0 +1,32 @@
+<div class="card animated fadeIn fast">
+  <div class="card-body">
+    <div class="form-row">
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>PNR a notificar</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="reservationNumber" name="reservationNumber" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Motivo afectación</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="description" name="description" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Tipo afectación</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="affectationType" name="affectationType" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-call (emitHeader)="getHeader($event)" [optionView]="false" #paramMenu></app-call>
+  <br />
+</div>

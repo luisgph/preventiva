@@ -1,0 +1,66 @@
+<div class="card animated fadeIn fast">
+  <div class="card-body">
+    <div class="form-row">
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>PNR a notificar</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="reservationNumber" name="reservationNumber"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Tipo de gestión</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="motiveDescription" name="motiveDescription"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Vuelo afectado</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="flightNumber" name="flightNumber"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-row">
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Fecha del vuelo</strong></span>
+          </div>
+          <input type="text" class="form-control" value="{{flightDate | date:'dd/MM/yyyy, h:mm a'}}" name="flightDate"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Motivo afectación</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="description" name="description"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group ">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"><strong>Tipo afectación</strong></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="affectationType" name="affectationType"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-call (emitHeader)="getHeader($event)" [optionView]="false" #paramValidators></app-call>
+  <br />
+</div>

@@ -1,0 +1,251 @@
+<div class="row text-center">
+    <div class="col">
+        <p-progressSpinner *ngIf="loading" class="text-center"></p-progressSpinner>
+    </div>
+</div>
+<div class="col-12 animated fadeIn fast" *ngIf="optionView">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card" *ngIf="isPassenger">
+                <h5 class="card-header">Información Pasajeros</h5>
+                <div class="card-body">
+                    <p-table [value]="objPassengersInfo" sortField="firstName" sortMode="single" (onSort)="onSort()" [paginator]="true" [rows]="5" [resizableColumns]="true">
+                        <table>
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th pResizableColumn>Tipo Contacto</th>
+                                    <th pResizableColumn>Contacto</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                                <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData.firstName].index === rowIndex">
+                                    <td colspan="2">
+                                        <span style="font-weight:bold">{{rowData.firstName}} {{rowData.lastName}}
+                      ({{rowData.travellerType}})</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ui-resizable-column">{{rowData.descriptionCT}}</td>
+                                    <td class="ui-resizable-column">{{rowData.descriptionC}}</td>
+                                </tr>
+                            </ng-template>
+                        </table>
+                    </p-table>
+                    <br *ngIf="isContactType">
+                    <form #forma="ngForm" *ngIf="isContactType">
+                        <table class="table table-striped table-bordered table-sm">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Tipo de Contacto</th>
+                                    <th>Contacto</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let field of contactsArray; let i = index">
+                                    <th scope="row" class="text-center ruteNumber">
+                                        {{i+1}}
+                                    </th>
+                                    <td>
+                                        <input [(ngModel)]="field.contactTypeDescription" class="form-control" type="text" name="{{field.contactTypeDescription}}" readonly />
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="field.description" class="form-control" type="text" name="{{field.description}}" readonly />
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-danger" type="button" (click)="deleteFieldValue(i)">Eliminar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" id="lstContactTypes" [(ngModel)]="contactTypeId" name="contactTypeId" [ngClass]="{'is-invalid': (origin.errors?.required) && origin.touched}" #origin="ngModel" required (change)="contactTypeChange($event)">
+                                          <option *ngFor="let item of listContactTypes" value="{{item.contactType_Id}}">{{ item.description }}</option>
+                                        </select>
+                                        <div class="invalid-feedback" *ngIf="origin.errors?.required">
+                                            El campo es requerido
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <ngx-intl-tel-input *ngIf="isPhone"  [(ngModel)]="contactTypeName" [cssClass]="'form-control'"  [preferredCountries]="['co']"  [onlyCountries]=""  [enableAutoCountrySelect]="true"  [enablePlaceholder]="true"  id="contactTypeName" name="contactTypeName"
+                                            #contactName="ngModel" required></ngx-intl-tel-input>
+                                        <input type="email" *ngIf="!isPhone" [(ngModel)]="contactTypeName" id="contactTypeName" name="contactTypeName" class="form-control" [ngClass]="{'is-invalid': (contactName.errors?.required) && contactName.touched}" #contactName="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                        />
+
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-danger" type="button" (click)="addFieldValue()">Adicionar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <br *ngIf="isFrequentTraveller" />
+            <div class="card" *ngIf="isFrequentTraveller">
+                <h5 class="card-header">Información Viajero Frecuente</h5>
+                <div class="card-body">
+                    <p-table [columns]="colsfrequentTraveller" [value]="objFrequentTravellersInfo" [paginator]="true" [rows]="5" [resizableColumns]="true">
+                        <table>
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn>
+                                        {{col.header}}
+                                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                <tr>
+                                    <td *ngFor="let col of columns" class="ui-resizable-column">
+                                        {{rowData[col.field]}}
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </table>
+                    </p-table>
+                </div>
+            </div>
+            <br *ngIf="isItinerary" />
+            <div class="card" *ngIf="isItinerary">
+                <h5 class="card-header">Itinerario</h5>
+                <div class="card-body">
+                    <p-table [columns]="colsitinerariesInfo" [value]="objItinerariesInfo" [paginator]="true" [rows]="5" [resizableColumns]="true">
+                        <table>
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th *ngFor="let col of columns" pResizableColumn>
+                                        {{col.header}}
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-rowData>
+                                <tr [ngClass]="rowData.statusCode == 'TK' ? 'gridSuccess' : rowData.statusCode == 'UN' ? 'gridDanger' : rowData.isProtected ? 'gridDanger' : null">
+                                    <td class="ui-resizable-column">
+                                        {{ rowData.flightNumber }}
+                                    </td>
+                                    <td class="ui-resizable-column">
+                                        {{rowData.departureDate | formato: 'departureDate' }}
+                                    </td>
+                                    <td class="ui-resizable-column">
+                                        {{rowData.arriveDate | formato:'arriveDate' }}
+                                    </td>
+                                    <td class="ui-resizable-column">
+                                        {{ rowData.origin }}
+                                    </td>
+                                    <td class="ui-resizable-column">
+                                        {{ rowData.destination }}
+                                    </td>
+                                    <td class="ui-resizable-column">
+                                        {{ rowData.statusCode }}
+                                    </td>
+                                    <td class="ui-resizable-column">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="{{rowData.itinerary_Id}}" [checked]="rowData.isProtected" [disabled]="!isEventType">
+                                            <label class="custom-control-label" for="{{rowData.itinerary_Id}}">{{ rowData.isProtected | formato: 'isProtected' }}</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </table>
+                    </p-table>
+                </div>
+            </div>
+            <br *ngIf="isSpecialService" />
+            <div class="card" *ngIf="isSpecialService">
+                <h5 class="card-header">Servicios Especiales</h5>
+                <div class="card-body">
+                    <p-table [columns]="colsspecialServicesInfo" [value]="objSpecialServicesInfo" [paginator]="true" [rows]="5">
+                        <table>
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                        {{col.header}}
+                                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                <tr>
+                                    <td *ngFor="let col of columns">
+                                        {{rowData[col.field]}}
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </table>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" *ngIf="flagTipificacion">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tipificación en CRM</h5>
+                    <div class="input-group input-group-sm mb-3" pTooltip="Momento" tooltipPosition="left">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" id="inputGroup-sizing-sm" aria-label="Checkbox for following text input" checked disabled>
+                            </div>
+                        </div>
+                        <input type="text" [ngModel]="moment" name="moment" class="form-control" aria-label="Text input with checkbox" aria-describedby="inputGroup-sizing-sm" disabled>
+                    </div>
+                    <div class="input-group input-group-sm mb-3" pTooltip="Actividad" tooltipPosition="left">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input" checked disabled>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" [ngModel]="activity" name="activity" aria-label="Text input with checkbox" aria-describedby="inputGroup-sizing-sm" disabled>
+                    </div>
+                    <div class="input-group input-group-sm mb-3" pTooltip="Razón" tooltipPosition="left">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input" checked disabled>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" [ngModel]="reason" name="reason" aria-label="Text input with checkbox" aria-describedby="inputGroup-sizing-sm" disabled>
+                    </div>
+                    <div class="input-group input-group-sm mb-3" pTooltip="Detalle Razón" tooltipPosition="left">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input" checked disabled>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" [ngModel]="reasonDetail" name="reasonDetail" aria-label="Text input with checkbox" aria-describedby="inputGroup-sizing-sm" disabled>
+                    </div>
+                    <div class="input-group input-group-sm mb-3" pTooltip="Motivo" tooltipPosition="left">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input" checked disabled>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" [ngModel]="motive" name="motive" aria-label="Text input with checkbox" aria-describedby="inputGroup-sizing-sm" disabled>
+                    </div>
+                    <div>
+                        <h5 class="card-title">Tipificación de la gestión</h5>
+                        <div class="form-group">
+                            <select class="form-control" id="fieldMotive">
+                          <option *ngFor="let option of optionGestion" value="{{option.motive_Id}}">{{ option.description }}</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div *ngIf="isEventType">
+                        <h5 class="card-title">Tipo de Afectación</h5>
+                        <div class="form-group">
+                            <select class="form-control" id="fieldAffectionTypeByHistories">
+                              <option *ngFor="let option of listAffectationTypeByHistories" value="{{option.affectationTypeByHistory_Id}}">{{ option.description }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger btn-md btn-block" (click)="saveReservation()">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

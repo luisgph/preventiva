@@ -1,0 +1,19 @@
+{
+  "stateManagement": [
+    {
+      "stateManagement_Id": "F938D723-0847-4684-85B5-79F527D8DC8D",
+      "description": "Disponible",
+      "distributable": 1
+    },
+    {
+      "stateManagement_Id": "E97068FC-F5A3-4050-BDC8-99648DFD85D9",
+      "description": "Break",
+      "distributable": 2
+    },
+    {
+      "stateManagement_Id": "A306DC4B-6D70-4D98-B277-8262E1EA2ADC",
+      "description": "Desconectado",
+      "distributable": 0
+    }
+  ]
+}

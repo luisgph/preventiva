@@ -1,0 +1,33 @@
+<div class="card animated fadeIn fast">
+        <div class="row text-center">
+          <div class="col">
+            <p-progressSpinner *ngIf="loading" class="text-center"></p-progressSpinner>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <p-table [columns]="cols" [value]="objReservations" [paginator]="true" [rows]="15">
+                <table>
+                  <ng-template pTemplate="header" let-columns>
+                    <tr class="text-center">
+                      <th scope="col">Número de Reserva</th>
+                      <th scope="col">Tipo de Gestión</th>
+                      <th scope="col">Usuario Gestionando</th>
+                      <th scope="col">Detalle</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rowData>
+                    <tr class="text-center">
+                      <td>{{ rowData.reservationNumber }}</td>
+                      <td>{{ rowData.motiveDescription }}</td>
+                      <td>{{ rowData.userManagement }}</td>
+                      <td class="text-center"><button type="button" class="btn btn-danger fas fa-marker" value={{rowData.consolidatedReservation_Id}} (click)="openReservation(rowData.consolidatedReservation_Id )"></button></td>
+                    </tr>
+                  </ng-template>
+                </table>
+              </p-table>
+            </div>
+          </div>
+        </div>
+</div>

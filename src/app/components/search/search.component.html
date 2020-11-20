@@ -1,0 +1,48 @@
+<div class="card animated fadeIn fast">
+  <div class="card-body">
+    <form (ngSubmit)="search()">
+      <div class="form-row">
+        <div class="col-md-4">
+          <div class="input-group">
+            <select class="form-control" id="inputGroupSelect04" [(ngModel)]="opcionBuscar" name="opcionBuscar" (change)="getTipoConsulta()">
+              <option value="0">Tipo de consulta</option>
+              <option value="1">PNR</option>
+              <option value="2">Vuelo o Protección</option>
+            </select>
+            <input type="text" class="form-control text-uppercase {{isValidOpcion}}" aria-describedby="inputGroup-sizing-default" maxlength="6" [(ngModel)]="valorBuscar" name="valorBuscar" placeholder="Buscar">
+            <div class="invalid-feedback">
+              El campo es requerido
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><strong>Fecha Inicio - Fecha Final</strong></span>
+            </div>
+            <input type="text"
+                   placeholder="Fecha Inicio - Fecha Final"
+                   class="form-control {{isValidDate}}"
+                   #drp="bsDaterangepicker"
+                   [bsConfig]="bsConfig"
+                   [(ngModel)]="dateRangePickerModel"
+                   name="dateRangePickerModel"
+                   bsDaterangepicker>
+            <div class="invalid-feedback">
+              El campo Fecha Inicio - Fecha Fin es requerido
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <button class="btn btn-secondary btn-block" id="btnSearch">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-grid *ngIf="flagInicial"></app-grid>
+  <app-grid-pnr *ngIf="flagPNR"></app-grid-pnr>
+  <app-grid-vuelo-proteccion *ngIf="flagVuelo"></app-grid-vuelo-proteccion>
+  <br />
+</div>

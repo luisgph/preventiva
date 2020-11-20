@@ -1,0 +1,124 @@
+{
+  "motivesInfo": [
+    {
+      "motive_Id": "0EB69062-A9B1-4037-9F7B-EF40A6458874",
+      "description": "No contesta",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "3588FEF6-596C-473E-9040-CEA6683BB195",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "15AF504C-A017-40A1-9813-AE2B35F33830",
+      "description": "Reserva sin evento",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "5C7EC0FB-9280-4E80-B4EB-CA26F5695F4A",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "38416DDF-E08C-4132-A745-44F4BAFA5BE6",
+      "description": "Mensaje de voz",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "50D16B33-A2A9-4D09-A817-09221066737E",
+      "description": "Agencia no toma mensaje",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "5C7EC0FB-9280-4E80-B4EB-CA26F5695F4A",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "55F5BB47-D14E-474C-8922-A6D5684BA56E",
+      "description": "Sin contactos",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "5C7EC0FB-9280-4E80-B4EB-CA26F5695F4A",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "79A102FF-CC10-40BF-8896-FEEF0B6292D1",
+      "description": "Mensaje agencia",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "8064CBA8-89C5-4EB2-8386-A8581F6DC3D3",
+      "description": "Tercero no autorizado",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "3588FEF6-596C-473E-9040-CEA6683BB195",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "B3DAC651-2288-412D-9CF9-8100F19953EB",
+      "description": "Cliente notificado",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "C0B207D5-D737-4D45-9D44-3351851F160A",
+      "description": "Tercero no toma mensaje",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "5C7EC0FB-9280-4E80-B4EB-CA26F5695F4A",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "D78D5684-9752-4045-A04F-862184901417",
+      "description": "No requiere contacto",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "5C7EC0FB-9280-4E80-B4EB-CA26F5695F4A",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "E165FF6B-1F33-48A2-B0FB-81B0CB6EE9A6",
+      "description": "Contacto Errado",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "5C7EC0FB-9280-4E80-B4EB-CA26F5695F4A",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "EE23F11F-70D5-4C4F-98AE-CBFC51358D94",
+      "description": "Mensaje tercero",
+      "gestionType_Id": "F04B3C6E-9356-4CC6-BD08-72C46B47233D",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    }
+  ]
+}

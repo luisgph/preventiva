@@ -1,0 +1,87 @@
+{
+  "IsSuccess": true,
+  "ReturnMessage": "Success",
+  "Data": {
+    "headerInfo": {
+      "reservationNumber": "UCBN7X",
+      "description": "cancelado",
+      "affectationType": "Cancellation",
+      "notified": "False",
+      "notifiedDate": null
+    },
+    "passengersInfo": [
+      {
+        "firstName": "MARIA DE LOS ANGELES",
+        "lastName": "GARCIA",
+        "travellerType": "ADT",
+        "descriptionCT": "Teléfono",
+        "descriptionC": "22702925"
+      },
+      {
+        "firstName": "MARIO DANILO",
+        "lastName": "QUINTANILLA",
+        "travellerType": "ADT",
+        "descriptionCT": "Teléfono",
+        "descriptionC": "22702925"
+      }
+    ],
+    "specialServicesInfo": [
+      {
+        "description": "CEID",
+        "value": "C397316733"
+      },
+      {
+        "description": "CEID",
+        "value": "C397316732"
+      }
+    ],
+    "itinerariesInfo": [
+      {
+        "flightNumber": "AV6651",
+        "departureDate": "11/10/2018 6:20:00 a. m.",
+        "arriveDate": "11/10/2018 7:15:00 a. m.",
+        "origin": "MGA",
+        "destination": "SAL"
+      },
+      {
+        "flightNumber": "AV 342",
+        "departureDate": "11/10/2018 8:15:00 a. m.",
+        "arriveDate": "11/10/2018 9:05:00 a. m.",
+        "origin": "SAL",
+        "destination": "GUA"
+      },
+      {
+        "flightNumber": "AV 589",
+        "departureDate": "28/10/2018 6:25:00 a. m.",
+        "arriveDate": "28/10/2018 7:15:00 a. m.",
+        "origin": "GUA",
+        "destination": "SAL"
+      },
+      {
+        "flightNumber": "TA 396",
+        "departureDate": "28/10/2018 8:40:00 a. m.",
+        "arriveDate": "28/10/2018 9:35:00 a. m.",
+        "origin": "SAL",
+        "destination": "MGA"
+      }
+    ],
+    "frequentTravellersInfo": [
+      {
+        "customerID": "24010091265",
+        "customerFirstName": "JAVIER EDUARDO",
+        "customerSurtName": "GONZALEZ URRUTIA",
+        "customerEmail": "javier.e.gonzalez.u@gmail.com",
+        "customerLevel": "4",
+        "customerLevelName": "Diamond"
+      },
+      {
+        "customerID": "13406220962",
+        "customerFirstName": "EDUARDO",
+        "customerSurtName": "SERRANO",
+        "customerEmail": "seredu137@hotmail.com",
+        "customerLevel": "1",
+        "customerLevelName": "LifeMiles"
+      }
+    ]
+  }
+}

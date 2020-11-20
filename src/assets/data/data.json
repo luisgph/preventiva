@@ -1,0 +1,74 @@
+{
+  "IsSuccess": true,
+  "ReturnMessage": "Success",
+  "Data": {
+    "headerInfo": {
+      "reservationNumber": "T9Y4D7",
+      "description": "adelantado",
+      "affectationType": "Itinerary Change",
+      "notified": "False",
+      "notifiedDate": null
+    },
+    "passengersInfo": [
+      {
+        "firstName": "PAVEL",
+        "lastName": "ARGEL",
+        "travellerType": "ADT",
+        "descriptionCT": "Teléfono",
+        "descriptionC": "3002827454"
+      },
+      {
+        "firstName": "PAVEL",
+        "lastName": "ARGEL",
+        "travellerType": "ADT",
+        "descriptionCT": "Correo electrónico",
+        "descriptionC": "PAVEL_ARGEL@HOTMAIL.COM"
+      }
+    ],
+    "specialServicesInfo": [
+      {
+        "description": "CEID",
+        "value": "C357274265"
+      }
+    ],
+    "itinerariesInfo": [
+      {
+        "flightNumber": "AV9793",
+        "departureDate": "29/09/2018 9:33:00 a. m.",
+        "arriveDate": "29/09/2018 10:50:00 a. m.",
+        "origin": "MTR",
+        "destination": "BOG",
+        "statusCode": "HK",
+        "isProtected": "False"
+      },
+      {
+        "flightNumber": "AV9794",
+        "departureDate": "28/10/2018 6:04:00 a. m.",
+        "arriveDate": "28/10/2018 7:33:00 a. m.",
+        "origin": "BOG",
+        "destination": "MTR",
+        "statusCode": "TK",
+        "isProtected": "True"
+      },
+      {
+        "flightNumber": "AV9794",
+        "departureDate": "28/10/2018 6:04:00 a. m.",
+        "arriveDate": "28/10/2018 7:33:00 a. m.",
+        "origin": "BOG",
+        "destination": "MTR",
+        "statusCode": "UN",
+        "isProtected": "False"
+      }
+    ],
+    "frequentTravellersInfo": [
+      {
+        "customerID": "13410638592",
+        "customerFirstName": "PAVEL BLADIMIR",
+        "customerSurtName": "ARGEL VERGARA",
+        "customerEmail": "PAVEL_ARGEL@HOTMAIL.COM",
+        "customerLevel": "1",
+        "customerLevelName": "LifeMiles"
+      }
+    ]
+  }
+}

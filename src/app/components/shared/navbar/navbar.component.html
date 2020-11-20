@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/site', {outlets: {'route1': ['home']}}]">
+        <img src="{{env.imgLogo}}" width="30" height="30" class="d-inline-block align-top" alt=""> PREVENTIVA
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active" *ngIf="flagOutbound">
+                <a class="nav-link {{flagMenu}}"
+                    [routerLink]="['/site', {outlets: {'route1': ['outbound']}}]"><strong>Outbound</strong></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="flagInbound">
+                <a class="nav-link {{flagMenu}}"
+                    [routerLink]="['/site', {outlets: {'route1': ['inbound']}}]"><strong>Inbound</strong></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="flagIropsValidations">
+                <a class="nav-link {{flagMenu}}"
+                    [routerLink]="['/site', {outlets: {'route1': ['iropsvalidations']}}]"><strong>Validaciones</strong></a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active" *ngIf="flagReexpeditions">
+                <a class="nav-link {{flagMenu}}"
+                    [routerLink]="['/site', {outlets: {'route1': ['reexpedition']}}]"><strong>Reexpediciones</strong></a>
+            </li>
+            <!-- <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/site', {outlets: {'route1': ['search']}}]"><strong>Administrador</strong></a>
+            </li> -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Estado del usuario
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" *ngIf="flagState">
+            <!-- <option *ngFor="let st of objState.Data" value="{{ st.stateManagement_Id }}" [selected]="st.distributable | formato:st.distributable">{{ st.description }}</option> -->
+                   <a *ngFor="let st of objState.Data" class="dropdown-item" (click)= "changeState(st.stateManagement_Id, st.description )" >{{ st.description }}</a>
+                </div>
+            </li>
+                  <li class="nav-item">
+                        <a class="nav-link disabled" tabindex="-1" aria-disabled="true">{{labelState}}</a>
+                      </li>
+        </ul>
+        Hola, {{ userName }}
+        <a class="nav-link fas fa-power-off" (click)="Salir()"></a>
+    </div>
+</nav>

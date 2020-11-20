@@ -1,0 +1,44 @@
+{
+  "motivesInfo": [
+    {
+      "motive_Id": "239E1DA5-11E3-4B7E-9F1D-F24661BDCC92",
+      "description": "No acepta la reacomodación",
+      "gestionType_Id": "BE93E843-289C-4AC0-A317-95F4E17A5884",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "3F99A604-7A91-4FFE-9913-F1657655F7C6",
+      "description": "No recibió mensaje",
+      "gestionType_Id": "BE93E843-289C-4AC0-A317-95F4E17A5884",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "A102133D-D18C-4D93-9CE1-3263ED108003",
+      "description": "Mensaje no es claro",
+      "gestionType_Id": "BE93E843-289C-4AC0-A317-95F4E17A5884",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    },
+    {
+      "motive_Id": "DE568548-D3B9-45BB-A64C-33156EB1A535",
+      "description": "Reserva no registra",
+      "gestionType_Id": "BE93E843-289C-4AC0-A317-95F4E17A5884",
+      "gestionType": null,
+      "category_Id": "3DDDB049-8ADD-4987-94ED-25FBCC8B59FA",
+      "category": null,
+      "consolidatedReservations": null,
+      "cases": null
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<div class="col-md-12">
+      <p-table #dt [columns]="cols" [value]="datos" [paginator]="true" [rows]="10">
+
+        <ng-template pTemplate="caption">
+          <div style="text-align: right">
+            <input type="text" class="form-control form-control-sm" pInputText size="50" placeholder="Filtro Global" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                   style="width: auto">
+          </div>
+        </ng-template>
+        <table>
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+                            ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+              </th>
+            </tr>
+            <tr>
+              <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'name'" class="form-control form-control-sm" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input *ngSwitchCase="'username'" class="form-control form-control-sm" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+              </td>
+            </tr>
+          </ng-template>
+        </table>
+      </p-table>
+    
+  </div>
